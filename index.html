@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Washington Wizards - A Rich History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --wizards-navy: #002B5C;
+            --wizards-red: #E31837;
+            --wizards-silver: #C4CED4;
+            --wizards-white: #FFFFFF;
+            --gold-accent: #B4975A;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--wizards-navy) 0%, #001a3a 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--wizards-red);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--wizards-red);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--wizards-navy);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: var(--wizards-red);
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--wizards-navy);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--wizards-red);
+            border-radius: 2px;
+        }
+
+        /* Origins Section */
+        .origins-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .origins-text h3 {
+            color: var(--wizards-navy);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .origins-text p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .name-evolution {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .name-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .name-item:last-child {
+            border-bottom: none;
+        }
+
+        .name-year {
+            background: var(--wizards-red);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-right: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .name-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--wizards-navy);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--wizards-red), var(--wizards-navy));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 50%;
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 450px;
+            position: relative;
+            margin-right: 30px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: 0;
+            margin-left: 30px;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--wizards-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -80px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -80px;
+        }
+
+        .timeline-content h3 {
+            color: var(--wizards-navy);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--wizards-red);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--wizards-navy);
+        }
+
+        /* Legends Grid */
+        .legends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .legend-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .legend-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .legend-header {
+            background: linear-gradient(135deg, var(--wizards-navy), var(--wizards-red));
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .legend-number {
+            font-size: 4rem;
+            font-weight: 800;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .legend-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: -10px;
+        }
+
+        .legend-position {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .legend-body {
+            padding: 25px;
+        }
+
+        .legend-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .legend-stat {
+            text-align: center;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .legend-stat-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--wizards-red);
+        }
+
+        .legend-stat-label {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+
+        .legend-achievements {
+            list-style: none;
+        }
+
+        .legend-achievements li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .legend-achievements li::before {
+            content: '🏆';
+            margin-right: 10px;
+        }
+
+        .legend-achievements li:last-child {
+            border-bottom: none;
+        }
+
+        /* Championship Section */
+        .championship-banner {
+            background: linear-gradient(135deg, var(--gold-accent) 0%, #d4af37 50%, var(--gold-accent) 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--wizards-navy);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(180, 151, 90, 0.4);
+        }
+
+        .championship-banner::before {
+            content: '🏆';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .championship-banner h3 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .championship-banner p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .championship-year {
+            font-size: 5rem;
+            font-weight: 900;
+            margin: 30px 0;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.5);
+            position: relative;
+        }
+
+        /* Eras Section */
+        .eras-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .era-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+        }
+
+        .era-sidebar {
+            background: linear-gradient(135deg, var(--wizards-navy), var(--wizards-red));
+            padding: 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .era-years {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+
+        .era-name {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .era-content {
+            padding: 30px;
+        }
+
+        .era-content h3 {
+            color: var(--wizards-navy);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .era-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .era-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .era-tag {
+            background: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--wizards-navy);
+            font-weight: 600;
+        }
+
+        /* Arena Section */
+        .arena-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .arena-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .arena-card h3 {
+            color: var(--wizards-navy);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .arena-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .arena-detail:last-child {
+            border-bottom: none;
+        }
+
+        .arena-label {
+            color: #888;
+            font-weight: 600;
+        }
+
+        .arena-value {
+            color: var(--wizards-navy);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--wizards-navy);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        footer h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        footer p {
+            opacity: 0.7;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border: 2px solid var(--wizards-red);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            background: var(--wizards-red);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .origins-content {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                padding-left: 60px;
+                padding-right: 0;
+            }
+
+            .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: -10px;
+                right: auto;
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .era-card {
+                grid-template-columns: 1fr;
+            }
+
+            .arena-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Washington <span>Wizards</span></h1>
+            <p class="hero-subtitle">A Legacy of Basketball Excellence in the Nation's Capital</p>
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <div class="stat-number">1961</div>
+                    <div class="stat-label">Founded</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">NBA Championship</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Conference Titles</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Years of History</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#origins">Origins</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#legends">Legends</a></li>
+            <li><a href="#championship">Championship</a></li>
+            <li><a href="#eras">Eras</a></li>
+            <li><a href="#arena">Arena</a></li>
+        </ul>
+    </nav>
+
+    <!-- Origins Section -->
+    <section id="origins">
+        <div class="section-title">
+            <h2>Franchise Origins</h2>
+        </div>
+        <div class="origins-content">
+            <div class="origins-text">
+                <h3>From Chicago to Washington</h3>
+                <p>The franchise that would become the Washington Wizards began its journey in 1961 as the Chicago Packers, one of the NBA's expansion teams. The team's early years were marked by frequent relocations and name changes, reflecting the growing pains of a young franchise finding its identity.</p>
+                <p>After just one season in Chicago, the team moved to Baltimore in 1963, becoming the Baltimore Bullets—a name with deep roots in the city's basketball history, borrowed from an earlier team that had won the 1948 BAA Championship.</p>
+                <p>The franchise finally found its permanent home in the Washington, D.C. metropolitan area in 1973, eventually settling into the Capital Centre in Landover, Maryland. In 1997, the team was renamed the Washington Wizards as part of a rebranding effort to distance itself from gun violence associations.</p>
+            </div>
+            <div class="name-evolution">
+                <h3 style="color: var(--wizards-navy); margin-bottom: 20px; text-align: center;">Name Evolution</h3>
+                <div class="name-item">
+                    <span class="name-year">1961-62</span>
+                    <span class="name-title">Chicago Packers</span>
+                </div>
+                <div class="name-item">
+                    <span class="name-year">1962-63</span>
+                    <span class="name-title">Chicago Zephyrs</span>
+                </div>
+                <div class="name-item">
+                    <span class="name-year">1963-73</span>
+                    <span class="name-title">Baltimore Bullets</span>
+                </div>
+                <div class="name-item">
+                    <span class="name-year">1973-74</span>
+                    <span class="name-title">Capital Bullets</span>
+                </div>
+                <div class="name-item">
+                    <span class="name-year">1974-97</span>
+                    <span class="name-title">Washington Bullets</span>
+                </div>
+                <div class="name-item">
+                    <span class="name-year">1997-Now</span>
+                    <span class="name-title">Washington Wizards</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" style="background: #f8f9fa; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-title">
+                <h2>Historic Moments</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1961</span>
+                        <h3>Franchise Founded</h3>
+                        <p>The Chicago Packers join the NBA as an expansion team, beginning a journey that would eventually lead to Washington, D.C.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1968</span>
+                        <h3>First Finals Appearance</h3>
+                        <p>The Baltimore Bullets reach the NBA Finals for the first time, falling to the Boston Celtics in six games.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1971</span>
+                        <h3>Finals Return</h3>
+                        <p>Baltimore returns to the Finals but loses to the Milwaukee Bucks, led by the young Kareem Abdul-Jabbar, in a sweep.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1973</span>
+                        <h3>Move to Washington</h3>
+                        <p>The franchise relocates to the nation's capital, beginning a new chapter as the Capital Bullets (later Washington Bullets).</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1978</span>
+                        <h3>🏆 NBA Champions!</h3>
+                        <p>The Washington Bullets capture their only NBA Championship, defeating the Seattle SuperSonics in seven thrilling games. Wes Unseld wins Finals MVP.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1979</span>
+                        <h3>Back-to-Back Finals</h3>
+                        <p>Washington returns to defend their title but falls to the Seattle SuperSonics in a Finals rematch.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">1997</span>
+                        <h3>Wizards Rebranding</h3>
+                        <p>Owner Abe Pollin changes the team name to the Washington Wizards, citing concerns about gun violence in the community.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2001</span>
+                        <h3>Michael Jordan Era</h3>
+                        <p>Basketball legend Michael Jordan comes out of retirement to play for the Wizards, bringing unprecedented attention to the franchise.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2005</span>
+                        <h3>Gilbert Arenas Rises</h3>
+                        <p>Gilbert "Agent Zero" Arenas leads the Wizards back to the playoffs, beginning a brief but exciting era of competitive basketball.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2010</span>
+                        <h3>Wall Era Begins</h3>
+                        <p>The Wizards select John Wall with the #1 overall pick, ushering in a new era of hope for the franchise.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2017</span>
+                        <h3>Eastern Conference Semifinals</h3>
+                        <p>The Wall-Beal duo leads Washington to the Eastern Conference Semifinals, their deepest playoff run in decades.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legends Section -->
+    <section id="legends">
+        <div class="section-title">
+            <h2>Franchise Legends</h2>
+        </div>
+        <div class="legends-grid">
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-number">41</div>
+                    <div class="legend-name">Wes Unseld</div>
+                    <div class="legend-position">Center</div>
+                </div>
+                <div class="legend-body">
+                    <div class="legend-stats">
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">10.8</div>
+                            <div class="legend-stat-label">PPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">14.0</div>
+                            <div class="legend-stat-label">RPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">13</div>
+                            <div class="legend-stat-label">Seasons</div>
+                        </div>
+                    </div>
+                    <ul class="legend-achievements">
+                        <li>1978 Finals MVP</li>
+                        <li>1969 MVP & ROY</li>
+                        <li>5× NBA All-Star</li>
+                        <li>Hall of Fame (1988)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-number">10</div>
+                    <div class="legend-name">Earl Monroe</div>
+                    <div class="legend-position">Guard</div>
+                </div>
+                <div class="legend-body">
+                    <div class="legend-stats">
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">23.7</div>
+                            <div class="legend-stat-label">PPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">4.3</div>
+                            <div class="legend-stat-label">APG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">4</div>
+                            <div class="legend-stat-label">Seasons</div>
+                        </div>
+                    </div>
+                    <ul class="legend-achievements">
+                        <li>1968 Rookie of the Year</li>
+                        <li>"Earl the Pearl"</li>
+                        <li>2× NBA All-Star (BAL)</li>
+                        <li>Hall of Fame (1990)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-number">25</div>
+                    <div class="legend-name">Gus Johnson</div>
+                    <div class="legend-position">Forward</div>
+                </div>
+                <div class="legend-body">
+                    <div class="legend-stats">
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">16.6</div>
+                            <div class="legend-stat-label">PPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">12.3</div>
+                            <div class="legend-stat-label">RPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">9</div>
+                            <div class="legend-stat-label">Seasons</div>
+                        </div>
+                    </div>
+                    <ul class="legend-achievements">
+                        <li>5× NBA All-Star</li>
+                        <li>Pioneer of the Slam Dunk</li>
+                        <li>5× All-Defensive Team</li>
+                        <li>Hall of Fame (2010)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-number">21</div>
+                    <div class="legend-name">Elvin Hayes</div>
+                    <div class="legend-position">Forward/Center</div>
+                </div>
+                <div class="legend-body">
+                    <div class="legend-stats">
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">21.3</div>
+                            <div class="legend-stat-label">PPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">12.4</div>
+                            <div class="legend-stat-label">RPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">9</div>
+                            <div class="legend-stat-label">Seasons</div>
+                        </div>
+                    </div>
+                    <ul class="legend-achievements">
+                        <li>1978 NBA Champion</li>
+                        <li>12× NBA All-Star</li>
+                        <li>3× All-NBA First Team</li>
+                        <li>Hall of Fame (1990)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-number">0</div>
+                    <div class="legend-name">Gilbert Arenas</div>
+                    <div class="legend-position">Guard</div>
+                </div>
+                <div class="legend-body">
+                    <div class="legend-stats">
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">24.2</div>
+                            <div class="legend-stat-label">PPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">5.3</div>
+                            <div class="legend-stat-label">APG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">6</div>
+                            <div class="legend-stat-label">Seasons</div>
+                        </div>
+                    </div>
+                    <ul class="legend-achievements">
+                        <li>"Agent Zero"</li>
+                        <li>3× NBA All-Star</li>
+                        <li>Clutch Shooter Legend</li>
+                        <li>Most Improved (2003)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="legend-card">
+                <div class="legend-header">
+                    <div class="legend-number">2</div>
+                    <div class="legend-name">John Wall</div>
+                    <div class="legend-position">Point Guard</div>
+                </div>
+                <div class="legend-body">
+                    <div class="legend-stats">
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">19.0</div>
+                            <div class="legend-stat-label">PPG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">9.2</div>
+                            <div class="legend-stat-label">APG</div>
+                        </div>
+                        <div class="legend-stat">
+                            <div class="legend-stat-value">10</div>
+                            <div class="legend-stat-label">Seasons</div>
+                        </div>
+                    </div>
+                    <ul class="legend-achievements">
+                        <li>#1 Overall Pick (2010)</li>
+                        <li>5× NBA All-Star</li>
+                        <li>Franchise Assists Leader</li>
+                        <li>All-NBA Third Team</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Championship Section -->
+    <section id="championship" style="background: #f8f9fa; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-title">
+                <h2>The Championship</h2>
+            </div>
+            <div class="championship-banner">
+                <h3>NBA Champions</h3>
+                <div class="championship-year">1978</div>
+                <p>Led by Finals MVP Wes Unseld and the dynamic scoring of Elvin Hayes, the Washington Bullets defeated the Seattle SuperSonics 4-3 in a thrilling seven-game series to capture the only NBA Championship in franchise history. The series featured incredible drama, with six of the seven games decided by single digits.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
+                <div class="arena-card">
+                    <h3 style="color: var(--wizards-red);">Series Breakdown</h3>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 1</span>
+                        <span class="arena-value">SEA 106 - WAS 102</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 2</span>
+                        <span class="arena-value">WAS 106 - SEA 98</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 3</span>
+                        <span class="arena-value">SEA 93 - WAS 92</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 4</span>
+                        <span class="arena-value">WAS 120 - SEA 116 (OT)</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 5</span>
+                        <span class="arena-value">SEA 98 - WAS 94</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 6</span>
+                        <span class="arena-value">WAS 117 - SEA 82</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Game 7</span>
+                        <span class="arena-value" style="color: var(--wizards-red);">WAS 105 - SEA 99 🏆</span>
+                    </div>
+                </div>
+                <div class="arena-card">
+                    <h3 style="color: var(--wizards-red);">Key Players</h3>
+                    <div class="arena-detail">
+                        <span class="arena-label">Finals MVP</span>
+                        <span class="arena-value">Wes Unseld</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Leading Scorer</span>
+                        <span class="arena-value">Elvin Hayes</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Head Coach</span>
+                        <span class="arena-value">Dick Motta</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Playoff Record</span>
+                        <span class="arena-value">14-7</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Regular Season</span>
+                        <span class="arena-value">44-38</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eras Section -->
+    <section id="eras">
+        <div class="section-title">
+            <h2>Franchise Eras</h2>
+        </div>
+        <div class="eras-container">
+            <div class="era-card">
+                <div class="era-sidebar">
+                    <div class="era-years">1961-1972</div>
+                    <div class="era-name">The Early Years</div>
+                </div>
+                <div class="era-content">
+                    <h3>Building a Foundation</h3>
+                    <p>The franchise's formative years saw multiple relocations and name changes. From Chicago to Baltimore, the team gradually built a competitive roster featuring stars like Earl "The Pearl" Monroe and Gus Johnson. These years laid the groundwork for future success.</p>
+                    <div class="era-highlights">
+                        <span class="era-tag">Earl Monroe ROY</span>
+                        <span class="era-tag">1968 Finals</span>
+                        <span class="era-tag">1971 Finals</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-card">
+                <div class="era-sidebar">
+                    <div class="era-years">1973-1981</div>
+                    <div class="era-name">The Golden Era</div>
+                </div>
+                <div class="era-content">
+                    <h3>Championship Glory</h3>
+                    <p>The peak of franchise success. After moving to Washington, the Bullets became consistent contenders with the legendary duo of Wes Unseld and Elvin Hayes. Four Finals appearances in this era culminated in the 1978 NBA Championship—the crowning achievement in team history.</p>
+                    <div class="era-highlights">
+                        <span class="era-tag">🏆 1978 Champions</span>
+                        <span class="era-tag">4 Finals Trips</span>
+                        <span class="era-tag">Unseld-Hayes Era</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-card">
+                <div class="era-sidebar">
+                    <div class="era-years">1982-2000</div>
+                    <div class="era-name">Transition Period</div>
+                </div>
+                <div class="era-content">
+                    <h3>Rebuilding & Rebranding</h3>
+                    <p>A challenging stretch saw the franchise struggle to recapture past glory. The team went through multiple rebuilding phases and experienced the historic name change to the Wizards in 1997. Despite the struggles, players like Bernard King and Chris Webber provided memorable moments.</p>
+                    <div class="era-highlights">
+                        <span class="era-tag">1997 Name Change</span>
+                        <span class="era-tag">Chris Webber Era</span>
+                        <span class="era-tag">New Arena (1997)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-card">
+                <div class="era-sidebar">
+                    <div class="era-years">2001-2003</div>
+                    <div class="era-name">Jordan Returns</div>
+                </div>
+                <div class="era-content">
+                    <h3>His Airness in D.C.</h3>
+                    <p>Michael Jordan's comeback brought unprecedented attention to the franchise. Though the team didn't achieve playoff success, Jordan's presence elevated the franchise's profile and created lasting memories. He averaged over 20 points per game in both seasons despite being in his late 30s.</p>
+                    <div class="era-highlights">
+                        <span class="era-tag">MJ's Return</span>
+                        <span class="era-tag">Global Spotlight</span>
+                        <span class="era-tag">Sold-Out Games</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-card">
+                <div class="era-sidebar">
+                    <div class="era-years">2004-2010</div>
+                    <div class="era-name">Agent Zero Era</div>
+                </div>
+                <div class="era-content">
+                    <h3>Gilbert's Greatness</h3>
+                    <p>Gilbert Arenas emerged as one of the league's most exciting players, earning the nickname "Agent Zero" and becoming known for his clutch shooting and colorful personality. The Wizards returned to playoff relevance with memorable first-round battles.</p>
+                    <div class="era-highlights">
+                        <span class="era-tag">3× All-Star</span>
+                        <span class="era-tag">Playoff Return</span>
+                        <span class="era-tag">Clutch Performances</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="era-card">
+                <div class="era-sidebar">
+                    <div class="era-years">2010-2020</div>
+                    <div class="era-name">Wall & Beal Era</div>
+                </div>
+                <div class="era-content">
+                    <h3>Dynamic Backcourt</h3>
+                    <p>John Wall and Bradley Beal formed one of the league's most talented backcourt duos. Wall's explosive athleticism paired with Beal's smooth shooting led to multiple playoff appearances and provided hope for championship contention before injuries derailed the partnership.</p>
+                    <div class="era-highlights">
+                        <span class="era-tag">Wall #1 Pick</span>
+                        <span class="era-tag">Multiple Playoffs</span>
+                        <span class="era-tag">All-Star Backcourt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arena Section -->
+    <section id="arena" style="background: #f8f9fa; max-width: 100%; padding: 80px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-title">
+                <h2>Home Court</h2>
+            </div>
+            <div class="arena-info">
+                <div class="arena-card">
+                    <h3>Capital One Arena</h3>
+                    <div class="arena-detail">
+                        <span class="arena-label">Opened</span>
+                        <span class="arena-value">December 2, 1997</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Location</span>
+                        <span class="arena-value">Washington, D.C.</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Capacity</span>
+                        <span class="arena-value">20,356</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Former Names</span>
+                        <span class="arena-value">MCI Center, Verizon Center</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">Address</span>
+                        <span class="arena-value">601 F Street NW</span>
+                    </div>
+                </div>
+                <div class="arena-card">
+                    <h3>Previous Venues</h3>
+                    <div class="arena-detail">
+                        <span class="arena-label">1961-62</span>
+                        <span class="arena-value">Chicago Coliseum</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">1962-63</span>
+                        <span class="arena-value">International Amphitheatre</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">1963-73</span>
+                        <span class="arena-value">Baltimore Civic Center</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">1973-97</span>
+                        <span class="arena-value">Capital Centre</span>
+                    </div>
+                    <div class="arena-detail">
+                        <span class="arena-label">1997-Present</span>
+                        <span class="arena-value">Capital One Arena</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h3>Washington Wizards</h3>
+        <p>From the Chicago Packers to the Washington Wizards, over six decades of professional basketball in America. One championship, countless memories, and a legacy that continues to grow.</p>
+        <div class="footer-links">
+            <a href="#origins">Origins</a>
+            <a href="#legends">Legends</a>
+            <a href="#championship">Championship</a>
+            <a href="#timeline">Timeline</a>
+        </div>
+        <p style="margin-top: 40px; font-size: 0.85rem; opacity: 0.5;">Historical website created for informational purposes</p>
+    </footer>
+
+</body>
+</html>
