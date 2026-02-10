@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<!-- This declaration tells the browser this is an HTML5 document -->
+
+<html lang="en">
+<!-- The root element of an HTML page. lang="en" specifies the language is English -->
+
+<head>
+    <!-- The head contains metadata (information about the document) -->
+
+    <meta charset="UTF-8">
+    <!-- Specifies character encoding for the document (UTF-8 supports all characters) -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Makes the page responsive on mobile devices -->
+
+    <title>HTML Basics - Learning Common Tags</title>
+    <!-- The title that appears in the browser tab -->
+</head>
+
+<body>
+    <!-- The body contains all visible content on the page -->
+
+    <!-- HEADING TAGS: Used for titles and section headers (h1 is largest, h6 is smallest) -->
+    <h1>Main Heading - h1</h1>
+    <h2>Subheading - h2</h2>
+    <h3>Smaller Heading - h3</h3>
+    <h4>Even Smaller - h4</h4>
+    <h5>Tiny Heading - h5</h5>
+    <h6>Smallest Heading - h6</h6>
+
+    <!-- HORIZONTAL RULE: Creates a horizontal line to separate content -->
+    <hr>
+
+    <!-- PARAGRAPH TAG: Used for blocks of text -->
+    <p>This is a paragraph. Paragraphs are used for regular text content.
+       They automatically add space above and below.</p>
+
+    <p>Here's another paragraph. Notice the space between paragraphs!</p>
+
+    <!-- LINE BREAK: Creates a line break within text (self-closing tag) -->
+    <p>This is line one.<br>
+       This is line two after a break.<br>
+       And here's line three.</p>
+
+    <hr>
+
+    <!-- TEXT FORMATTING TAGS -->
+    <p>
+        <strong>Bold text using strong tag</strong> - indicates important text<br>
+        <b>Bold text using b tag</b> - just makes text bold<br>
+        <em>Italic text using em tag</em> - emphasizes text<br>
+        <i>Italic text using i tag</i> - just makes text italic<br>
+        <u>Underlined text</u><br>
+        <mark>Highlighted text</mark><br>
+        <small>Smaller text</small><br>
+        <del>Deleted/strikethrough text</del><br>
+        <ins>Inserted/underlined text</ins><br>
+        <sub>Subscript</sub> and <sup>Superscript</sup>
+    </p>
+
+    <hr>
+
+    <!-- LINKS: Create clickable hyperlinks -->
+    <h2>Links</h2>
+    <a href="https://www.google.com">This is a link to Google</a><br>
+    <a href="https://www.google.com" target="_blank">This link opens in a new tab</a>
+
+    <hr>
+
+    <!-- IMAGES: Display pictures (self-closing tag) -->
+    <h2>Images</h2>
+    <img src="https://via.placeholder.com/300x200" alt="Placeholder image" width="300">
+    <!-- src = source URL, alt = alternative text if image doesn't load, width = size -->
+
+    <hr>
+
+    <!-- LISTS: Organize items -->
+    <h2>Unordered List (Bullets)</h2>
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+
+    <h2>Ordered List (Numbers)</h2>
+    <ol>
+        <li>First step</li>
+        <li>Second step</li>
+        <li>Third step</li>
+    </ol>
+
+    <hr>
+
+    <!-- DIVISION: Container for grouping content -->
+    <h2>Div and Span</h2>
+    <div style="background-color: lightblue; padding: 10px;">
+        This is a div element. It's a block-level container that takes up the full width available.
+    </div>
+
+    <p>This is a paragraph with a <span style="color: red;">red span element</span> inside it.
+       Span is inline and only takes up as much width as needed.</p>
+
+    <hr>
+
+    <!-- TABLES: Display data in rows and columns -->
+    <h2>Table</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td>Row 1, Cell 1</td>
+            <td>Row 1, Cell 2</td>
+            <td>Row 1, Cell 3</td>
+        </tr>
+        <tr>
+            <td>Row 2, Cell 1</td>
+            <td>Row 2, Cell 2</td>
+            <td>Row 2, Cell 3</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <!-- FORMS: Collect user input -->
+    <h2>Form Elements</h2>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="your@email.com"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="1" max="120"><br><br>
+
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date"><br><br>
+
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br><br>
+
+        <input type="checkbox" id="subscribe" name="subscribe">
+        <label for="subscribe">Subscribe to newsletter</label><br><br>
+
+        <label for="country">Country:</label><br>
+        <select id="country" name="country">
+            <option value="">Select a country</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+            <option value="canada">Canada</option>
+        </select><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50"
+                  placeholder="Enter your message here"></textarea><br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <hr>
+
+    <!-- SEMANTIC TAGS: Give meaning to sections of your page -->
+    <header>
+        <h2>Header Section</h2>
+        <p>Typically contains navigation, logo, or introductory content</p>
+    </header>
+
+    <nav>
+        <h3>Navigation Section</h3>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h3>Main Content Section</h3>
+        <article>
+            <h4>Article Element</h4>
+            <p>Contains independent, self-contained content like a blog post or news article.</p>
+        </article>
+
+        <section>
+            <h4>Section Element</h4>
+            <p>Groups related content together, like chapters in a book.</p>
+        </section>
+
+        <aside>
+            <h4>Aside Element</h4>
+            <p>Contains content tangentially related to the main content, like a sidebar.</p>
+        </aside>
+    </main>
+
+    <footer>
+        <h3>Footer Section</h3>
+        <p>Typically contains copyright, contact info, or links at the bottom of the page</p>
+        <p>&copy; 2026 HTML Learning Demo</p>
+    </footer>
+
+    <hr>
+
+    <!-- OTHER USEFUL TAGS -->
+    <blockquote>
+        "This is a blockquote element, used for longer quotations from another source."
+    </blockquote>
+
+    <pre>
+    This is preformatted text.
+    It preserves    spaces
+    and line breaks
+    exactly as typed.
+    </pre>
+
+    <code>console.log("This is code element for inline code");</code>
+
+    <p>You can use &lt;br&gt; to show HTML code without rendering it
+       (using entities: &amp;lt; for &lt; and &amp;gt; for &gt;)</p>
+
+</body>
+</html>
