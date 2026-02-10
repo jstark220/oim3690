@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiality Check | Professional Accounting Analysis & Financial Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lora:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #000000;
+            --color-secondary: #1a1a1a;
+            --color-accent: #8B4513;
+            --color-gold: #C9A961;
+            --color-background: #FFFFFF;
+            --color-surface: #F8F9FA;
+            --color-text: #2C2C2C;
+            --color-text-light: #6C757D;
+            --color-border: #DEE2E6;
+            --color-divider: #ADB5BD;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Lora', Georgia, serif;
+            --font-sans: 'Source Sans Pro', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Masthead Header */
+        .masthead {
+            background: var(--color-primary);
+            color: white;
+            text-align: center;
+            padding: 0.4rem 2rem;
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Main Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--color-background);
+            border-bottom: 3px double var(--color-primary);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem 0.5rem;
+        }
+
+        .logo-section {
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+            margin-bottom: 0.25rem;
+        }
+
+        .site-title {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: block;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.15rem;
+        }
+
+        .site-tagline {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            color: var(--color-text-light);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            font-family: var(--font-sans);
+            text-decoration: none;
+            color: var(--color-text);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--color-accent);
+            border-bottom-color: var(--color-accent);
+        }
+
+        /* Hero/Featured Section */
+        .hero {
+            max-width: 1400px;
+            margin: 1.5rem auto;
+            padding: 0 2rem;
+        }
+
+        .featured-banner {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: 2px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-gold) 0%, var(--color-accent) 100%);
+        }
+
+        .featured-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .featured-title {
+            font-family: var(--font-display);
+            font-size: 2.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .featured-description {
+            font-family: var(--font-body);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+        }
+
+        /* Section Headers */
+        .section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            border-bottom: 3px solid var(--color-primary);
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            letter-spacing: -0.01em;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            display: flex;
+            gap: 0;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--color-border);
+            border-radius: 2px;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            flex: 1;
+            padding: 0.875rem 1.5rem;
+            background: var(--color-background);
+            border: none;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-right: 1px solid var(--color-border);
+        }
+
+        .category-btn:last-child {
+            border-right: none;
+        }
+
+        .category-btn:hover {
+            background: var(--color-surface);
+            color: var(--color-accent);
+        }
+
+        .category-btn.active {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-color: var(--color-primary);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--color-text-light);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .article-content {
+            padding: 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-category {
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-excerpt {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--color-border);
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            color: var(--color-text-light);
+        }
+
+        .article-date {
+            font-weight: 600;
+        }
+
+        .article-read-time {
+            color: var(--color-text-light);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--color-border);
+            padding: 4rem 0;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+            color: var(--color-text);
+        }
+
+        .about-features {
+            background: white;
+            border: 1px solid var(--color-border);
+            padding: 2rem;
+        }
+
+        .about-features h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+            text-align: center;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .feature-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .feature-item h4 {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--color-accent);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-text);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .cta-box {
+            background: var(--color-primary);
+            color: white;
+            padding: 3.5rem;
+            text-align: center;
+            border-top: 4px solid var(--color-gold);
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--color-primary);
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-gold);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-secondary);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            border-top: 4px solid var(--color-primary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-gold);
+        }
+
+        .footer-section p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .article-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .featured-banner {
+                padding: 2.5rem 2rem;
+            }
+
+            .featured-title {
+                font-size: 2rem;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-nav {
+                flex-direction: column;
+            }
+
+            .category-btn {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Masthead -->
+    <div class="masthead">
+        Professional Accounting Analysis • Financial Insights • Corporate Earnings Coverage
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="Images/ChatGPT Image Jan 20, 2026 at 03_52_02 PM.png" alt="Materiality Check" class="logo-image">
+                <a href="#home" class="site-title">Materiality Check</a>
+                <p class="site-tagline">Accounting Insights & Financial Analysis</p>
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#analysis">Analysis</a>
+                <a href="#about">About</a>
+                <a href="#categories">Categories</a>
+                <a href="https://x.com/materialitychck" target="_blank">Follow on X</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Featured/Hero Section -->
+    <section class="hero" id="home">
+        <div class="featured-banner">
+            <div class="featured-label">Featured Analysis</div>
+            <h1 class="featured-title">Deep Dives into Corporate Financials</h1>
+            <p class="featured-description">
+                Materiality Check provides comprehensive analysis of earnings reports, financial statements,
+                and accounting policies from the world's leading companies. Our mission is to make complex
+                accounting principles accessible and actionable for investors, students, and finance professionals.
+            </p>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="section" id="analysis">
+        <div class="section-header">
+            <h2 class="section-title">Latest Analysis</h2>
+            <p class="section-subtitle">In-depth coverage of earnings releases, financial statements, and accounting developments</p>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <button class="category-btn active" data-category="all">All Coverage</button>
+            <button class="category-btn" data-category="mag7">Magnificent 7</button>
+            <button class="category-btn" data-category="tech">Technology</button>
+            <button class="category-btn" data-category="finance">Financial Services</button>
+            <button class="category-btn" data-category="healthcare">Healthcare</button>
+            <button class="category-btn" data-category="retail">Consumer & Retail</button>
+            <button class="category-btn" data-category="energy">Energy</button>
+            <button class="category-btn" data-category="communication">Communications</button>
+        </div>
+
+        <!-- Article Grid -->
+        <div class="article-grid">
+            <!-- Magnificent 7 Articles -->
+            <article class="article-card" data-category="mag7">
+                <div class="article-image">📊</div>
+                <div class="article-content">
+                    <div class="article-category">Magnificent 7</div>
+                    <h3 class="article-title">Apple's Q4 Revenue Composition: Services vs. Products</h3>
+                    <p class="article-excerpt">
+                        A comprehensive breakdown of Apple's latest quarterly earnings, examining the shift
+                        toward services revenue and implications for gross margin expansion.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">February 10, 2026</span>
+                        <span class="article-read-time">8 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="mag7">
+                <div class="article-image">☁️</div>
+                <div class="article-content">
+                    <div class="article-category">Magnificent 7</div>
+                    <h3 class="article-title">Microsoft Azure Revenue Recognition Methods Analyzed</h3>
+                    <p class="article-excerpt">
+                        Exploring Microsoft's cloud accounting practices, deferred revenue patterns,
+                        and what they reveal about long-term contract dynamics.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">February 8, 2026</span>
+                        <span class="article-read-time">10 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="mag7">
+                <div class="article-image">📦</div>
+                <div class="article-content">
+                    <div class="article-category">Magnificent 7</div>
+                    <h3 class="article-title">Amazon's Operating Margin Expansion: The AWS Effect</h3>
+                    <p class="article-excerpt">
+                        How Amazon Web Services drives profitability across the entire organization
+                        and masks lower margins in retail operations.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">February 5, 2026</span>
+                        <span class="article-read-time">12 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Tech Articles -->
+            <article class="article-card" data-category="tech">
+                <div class="article-image">💼</div>
+                <div class="article-content">
+                    <div class="article-category">Technology</div>
+                    <h3 class="article-title">Salesforce's Subscription Revenue Model: A Deep Dive</h3>
+                    <p class="article-excerpt">
+                        Examining Salesforce's revenue recognition policies, customer acquisition costs,
+                        and the economics of their subscription-based business model.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">February 3, 2026</span>
+                        <span class="article-read-time">9 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="tech">
+                <div class="article-image">🎨</div>
+                <div class="article-content">
+                    <div class="article-category">Technology</div>
+                    <h3 class="article-title">Adobe's Transition to SaaS: Financial Impact Analysis</h3>
+                    <p class="article-excerpt">
+                        The strategic shift from perpetual licenses to subscription revenue has transformed
+                        Adobe's financial profile and cash flow characteristics.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 30, 2026</span>
+                        <span class="article-read-time">7 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Finance Articles -->
+            <article class="article-card" data-category="finance">
+                <div class="article-image">🏦</div>
+                <div class="article-content">
+                    <div class="article-category">Financial Services</div>
+                    <h3 class="article-title">JPMorgan Chase Earnings: Net Interest Income Analysis</h3>
+                    <p class="article-excerpt">
+                        Breaking down net interest margins, loan loss provisions, and trading revenue
+                        in JPMorgan's latest quarterly report.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 28, 2026</span>
+                        <span class="article-read-time">11 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="finance">
+                <div class="article-image">💳</div>
+                <div class="article-content">
+                    <div class="article-category">Financial Services</div>
+                    <h3 class="article-title">Payment Processors Compared: Visa vs. Mastercard Margins</h3>
+                    <p class="article-excerpt">
+                        A comparative analysis of business models, operating margins, and growth strategies
+                        of the two dominant payment processing networks.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 25, 2026</span>
+                        <span class="article-read-time">10 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Healthcare Articles -->
+            <article class="article-card" data-category="healthcare">
+                <div class="article-image">🏥</div>
+                <div class="article-content">
+                    <div class="article-category">Healthcare</div>
+                    <h3 class="article-title">UnitedHealth Group: Revenue Stream Diversification</h3>
+                    <p class="article-excerpt">
+                        Understanding the complex revenue sources across insurance and healthcare services,
+                        and how UnitedHealth recognizes medical costs.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 22, 2026</span>
+                        <span class="article-read-time">9 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Retail Articles -->
+            <article class="article-card" data-category="retail">
+                <div class="article-image">🛒</div>
+                <div class="article-content">
+                    <div class="article-category">Consumer & Retail</div>
+                    <h3 class="article-title">Walmart's Inventory Turnover: Supply Chain Excellence</h3>
+                    <p class="article-excerpt">
+                        How Walmart maintains industry-leading inventory turnover ratios and the positive
+                        impact on working capital and cash flow generation.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 20, 2026</span>
+                        <span class="article-read-time">8 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Energy Articles -->
+            <article class="article-card" data-category="energy">
+                <div class="article-image">⚡</div>
+                <div class="article-content">
+                    <div class="article-category">Energy</div>
+                    <h3 class="article-title">ExxonMobil's Capital Allocation Strategy Examined</h3>
+                    <p class="article-excerpt">
+                        Analysis of capital expenditure decisions, depreciation policies, and long-term
+                        investment strategies in the energy sector.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 18, 2026</span>
+                        <span class="article-read-time">10 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Communication Articles -->
+            <article class="article-card" data-category="communication">
+                <div class="article-image">📡</div>
+                <div class="article-content">
+                    <div class="article-category">Communications</div>
+                    <h3 class="article-title">Verizon's Network Infrastructure Investment Returns</h3>
+                    <p class="article-excerpt">
+                        Understanding how massive capital investments in 5G infrastructure translate
+                        to subscriber growth and average revenue per user.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 15, 2026</span>
+                        <span class="article-read-time">9 min read</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="article-card" data-category="communication">
+                <div class="article-image">🎬</div>
+                <div class="article-content">
+                    <div class="article-category">Communications</div>
+                    <h3 class="article-title">Netflix Subscriber Economics and Content Amortization</h3>
+                    <p class="article-excerpt">
+                        Deep dive into Netflix's subscriber acquisition costs, churn management, and
+                        content asset amortization policies.
+                    </p>
+                    <div class="article-meta">
+                        <span class="article-date">January 12, 2026</span>
+                        <span class="article-read-time">11 min read</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Materiality Check</h2>
+                <p>
+                    Materiality Check was founded to bridge the gap between complex corporate accounting
+                    and the investors, students, and professionals who need to understand it. We provide
+                    detailed, unbiased analysis of financial statements, earnings releases, and accounting
+                    policies from the world's leading companies.
+                </p>
+                <p>
+                    Founded by Jacob Stark, an accounting student at Babson College and incoming audit
+                    intern at Deloitte, Materiality Check combines academic rigor with practical insights
+                    from real-world financial analysis. Our coverage spans major sectors including technology,
+                    financial services, healthcare, retail, energy, and communications.
+                </p>
+                <p>
+                    We believe that informed decision-making starts with understanding the numbers. Through
+                    clear explanations and detailed breakdowns, we make accounting accessible without
+                    sacrificing depth or accuracy.
+                </p>
+            </div>
+            <div class="about-features">
+                <h3>What We Offer</h3>
+                <div class="feature-item">
+                    <h4>Earnings Analysis</h4>
+                    <p>Comprehensive quarterly earnings breakdowns with revenue, margin, and cash flow analysis</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Accounting Deep Dives</h4>
+                    <p>Detailed examination of accounting policies, revenue recognition, and financial reporting</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Industry Coverage</h4>
+                    <p>Organized analysis across Magnificent 7, Tech, Finance, Healthcare, and more</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Educational Content</h4>
+                    <p>Learn accounting concepts through real-world company examples and case studies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="categories">
+        <div class="cta-box">
+            <h2>Follow Materiality Check</h2>
+            <p>Join our community for daily accounting insights, earnings analysis, and financial commentary</p>
+            <a href="https://x.com/materialitychck" target="_blank" class="btn-primary">
+                Follow @materialitychck on X
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Materiality Check</h3>
+                <p>
+                    Professional accounting analysis and financial insights. Making complex corporate
+                    financials accessible to investors, students, and finance professionals worldwide.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="https://x.com/materialitychck" target="_blank">Follow on X</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-category="mag7">Magnificent 7</a></li>
+                    <li><a href="#" data-category="tech">Technology</a></li>
+                    <li><a href="#" data-category="finance">Financial Services</a></li>
+                    <li><a href="#" data-category="healthcare">Healthcare</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>More Sectors</h3>
+                <ul class="footer-links">
+                    <li><a href="#" data-category="retail">Consumer & Retail</a></li>
+                    <li><a href="#" data-category="energy">Energy</a></li>
+                    <li><a href="#" data-category="communication">Communications</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Materiality Check. Created by Jacob Stark. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Category filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const articleCards = document.querySelectorAll('.article-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const category = button.getAttribute('data-category');
+
+                // Filter articles
+                articleCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Scroll to articles
+                document.querySelector('.article-grid').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

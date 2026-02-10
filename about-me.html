@@ -3,269 +3,1164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website of Jacob Stark, Babson College Senior">
-    <meta name="author" content="Jacob Stark">
-    <title>About Me - Jacob Stark</title>
-
-    <!-- Internal CSS for basic styling -->
+    <title>Jacob Stark | Auditing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-cream: #FFFFFF;
+            --color-charcoal: #0A2463;
+            --color-slate: #1E3A8A;
+            --color-warm-gray: #64748B;
+            --color-accent: #2563EB;
+            --color-accent-dark: #1E40AF;
+            --color-light-border: rgba(37, 99, 235, 0.2);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Outfit', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
+            font-family: var(--font-body);
+            background-color: var(--color-cream);
+            color: var(--color-charcoal);
+            line-height: 1.7;
+            font-weight: 400;
+            overflow-x: hidden;
         }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            border-radius: 5px;
+
+        /* Animated background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
+
+        /* Navigation */
         nav {
-            background-color: #555;
-            padding: 10px;
-            margin: 20px 0;
-            border-radius: 5px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, var(--color-cream), transparent);
+            transition: all 0.4s ease;
         }
-        nav a {
+
+        nav.scrolled {
+            background: rgba(248, 246, 241, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--color-charcoal);
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-warm-gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-charcoal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-eyebrow {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--color-accent);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .accent {
+            color: var(--color-accent);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--color-warm-gray);
+            max-width: 550px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--color-charcoal);
+            color: var(--color-cream);
+        }
+
+        .btn-primary:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-charcoal);
+            border: 1px solid var(--color-light-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        /* Profile Image */
+        .hero-decoration {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 350px;
+            height: 350px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-50%); }
+            50% { transform: translateY(-55%); }
+        }
+
+        .hero-decoration img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--color-accent);
+            box-shadow: 0 20px 60px rgba(10, 36, 99, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .hero-decoration img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 30px 80px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Contact Info Overlay */
+        .profile-contact-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 36, 99, 0.95);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero-decoration:hover .profile-contact-overlay {
+            opacity: 1;
+        }
+
+        .profile-contact-overlay h3 {
+            color: var(--color-cream);
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .profile-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--color-cream);
+            margin: 0.5rem 0;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .profile-contact-item:hover {
+            color: var(--color-accent);
+        }
+
+        .profile-contact-item svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Section styling */
+        section {
+            padding: 8rem 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 400;
+            color: var(--color-light-border);
+            line-height: 1;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 500;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--color-charcoal);
+            color: var(--color-cream);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 10% 90%, rgba(37, 99, 235, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .about .section-number {
+            color: rgba(37, 99, 235, 0.2);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: rgba(248, 246, 241, 0.8);
+            line-height: 1.9;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .stat {
+            padding: 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .stat:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 500;
+            color: var(--color-cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(248, 246, 241, 0.6);
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 4rem;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--color-light-border);
+            transition: all 0.4s ease;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-date {
+            font-size: 0.85rem;
+            color: var(--color-warm-gray);
+            letter-spacing: 0.05em;
+        }
+
+        .experience-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-content h4 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--color-charcoal);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .experience-content p {
+            color: var(--color-warm-gray);
+            max-width: 600px;
+        }
+
+        /* Education Section */
+        .education {
+            background: linear-gradient(135deg, var(--color-charcoal) 0%, #2a2a2a 100%);
+            color: var(--color-cream);
+        }
+
+        .education .section-number {
+            color: rgba(37, 99, 235, 0.2);
+        }
+
+        .education-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .education-main h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .education-main h4 {
+            font-size: 1.1rem;
+            color: var(--color-cream);
+            margin-bottom: 2rem;
+        }
+
+        .education-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .education-tag {
+            padding: 0.75rem 1.25rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .education-activities {
+            padding-left: 3rem;
+            border-left: 2px solid var(--color-accent);
+        }
+
+        .education-activities h5 {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .education-activities ul {
+            list-style: none;
+        }
+
+        .education-activities li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(248, 246, 241, 0.8);
+            font-size: 0.95rem;
+        }
+
+        .education-activities li:last-child {
+            border-bottom: none;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .skill-category {
+            padding: 3rem;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-category h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--color-warm-gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-list li::before {
+            content: '→';
+            color: var(--color-accent);
+            font-size: 0.8rem;
+        }
+
+        .skill-link-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: var(--color-accent);
             color: white;
             text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
         }
-        nav a:hover {
-            background-color: #777;
-            border-radius: 3px;
+
+        .skill-link-btn:hover {
+            background: var(--color-accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
-        section {
-            background-color: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        img {
-            border-radius: 50%;
-            border: 3px solid #333;
-        }
-        footer {
+
+        /* Contact Section */
+        .contact {
             text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-            margin-top: 30px;
-            border-radius: 5px;
+            background: var(--color-cream);
+            position: relative;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
         }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
+
+        .contact h2 {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
         }
-        th {
-            background-color: #333;
-            color: white;
+
+        .contact p {
+            font-size: 1.15rem;
+            color: var(--color-warm-gray);
+            margin-bottom: 3rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--color-charcoal);
+            padding: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-link:hover .contact-icon {
+            background: var(--color-accent);
+            color: var(--color-cream);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--color-charcoal);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .contact-link span {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .contact-detail {
+            font-size: 0.9rem;
+            color: var(--color-warm-gray);
+            margin-top: -0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 4rem;
+            text-align: center;
+            border-top: 1px solid var(--color-light-border);
+        }
+
+        footer p {
+            font-size: 0.85rem;
+            color: var(--color-warm-gray);
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            section {
+                padding: 5rem 2rem;
+            }
+
+            .hero {
+                padding: 6rem 2rem 4rem;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-decoration {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 250px;
+                height: 250px;
+                margin-top: 3rem;
+                animation: none;
+            }
+
+            .hero-eyebrow {
+                justify-content: center;
+            }
+
+            .hero-description {
+                text-align: center;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .education-card {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .education-activities {
+                padding-left: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-decoration {
+                width: 200px;
+                height: 200px;
+                margin-top: 2rem;
+            }
+
+            .profile-contact-overlay h3 {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .profile-contact-item {
+                font-size: 0.75rem;
+            }
+
+            .section-number {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact h2 {
+                font-size: 2.5rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Menu -->
+    <!-- Navigation -->
     <nav>
-        <a href="#intro">Introduction</a>
-        <a href="#education">Education</a>
-        <a href="#interests">Interests</a>
-        <a href="#skills">Skills</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#contact">Contact</a>
+        <div class="logo">J<span>.</span>Stark</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Interests</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <header>
-        <h1>Jacob Stark</h1>
-        <p>Babson College Senior | Tennis Enthusiast</p>
-    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-eyebrow">Auditing</div>
+            <h1>Jacob <span class="accent">Stark</span></h1>
+            <p class="hero-description">
+                Accounting student at Babson College and incoming Audit Intern at Deloitte
+                in Washington, D.C. Passionate about business, and excited to build a career
+                in public accounting.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">
+                    Get In Touch
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#experience" class="btn btn-secondary">View Experience</a>
+            </div>
+        </div>
+        <div class="hero-decoration">
+            <img src="Images/headshot.jpeg" alt="Jacob Stark Professional Headshot">
+            <div class="profile-contact-overlay">
+                <h3>Contact Me</h3>
+                <a href="mailto:jstark2@babson.edu" class="profile-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    jstark2@babson.edu
+                </a>
+                <a href="tel:301-219-4599" class="profile-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                    </svg>
+                    301-219-4599
+                </a>
+                <a href="https://www.linkedin.com/in/jacob-a-stark/" target="_blank" class="profile-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                        <rect x="2" y="9" width="4" height="12"/>
+                        <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <main>
-        <!-- Introduction Section with Image -->
-        <section id="intro">
-            <h2>Introduction</h2>
-            <img src="https://via.placeholder.com/150" alt="Profile picture of Jacob Stark" width="150" height="150">
-            <p>Hello! My name is <strong>Jacob Stark</strong>, and welcome to my personal website!</p>
-            <p>I'm passionate about <mark>business, technology, and sports</mark>. This page will give you a glimpse into who I am and what I enjoy doing.</p>
-        </section>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>
+                    Currently a senior at Babson College concentrating in Accounting. This summer, I will be
+                    interning in Audit at Deloitte in McLean, VA. My time at Babson has fueled my passion for
+                    both accounting and entrepreneurship, and this semester, I am working as an Intermediate
+                    Accounting II Tutor, where I hope to help students build confidence and technical skills in
+                    accounting. Before my time at Babson, I took a gap year after high school to create and solely
+                    manage StarkSensei Trading LLC, which generated $70,000+ in revenue with 50% profit margins
+                    through the sale of collectible trading cards. I continued my entrepreneurial passion when I
+                    got to Babson by co-founding Swipe Athletics, an innovative athletic apparel startup providing
+                    high-quality tennis shorts with an integrated towel so players can easily dry their hands.
+                </p>
+            </div>
+            <div class="about-stats fade-in">
+                <div class="stat">
+                    <div class="stat-number">3.95</div>
+                    <div class="stat-label">GPA</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Dean's Scholar</div>
+                    <div class="stat-label">Babson College</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Deloitte</div>
+                    <div class="stat-label">Incoming Audit Intern</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Education Section -->
-        <section id="education">
-            <h2>Education</h2>
-            <p>I am currently a <em>senior</em> at <strong>Babson College</strong>, one of the top entrepreneurship schools in the country.</p>
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Experience</h2>
+        </div>
+        <div class="experience-grid">
+            <div class="experience-item fade-in">
+                <div class="experience-date">Incoming 2026</div>
+                <div class="experience-content">
+                    <h3>Deloitte</h3>
+                    <h4>Audit Intern — Washington, D.C.</h4>
+                    <p>
+                        Joining Deloitte's audit practice in the Washington, D.C. area,
+                        working with engagement teams to deliver high-quality audit services
+                        and gain hands-on experience in public accounting.
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">Current</div>
+                <div class="experience-content">
+                    <h3>Babson College</h3>
+                    <h4>Intermediate Accounting II Tutor & Teaching Assistant</h4>
+                    <p>
+                        Providing one-on-one and group tutoring sessions to help students master
+                        complex accounting concepts and principles. Collaborating with faculty to
+                        develop and write class assignments that reinforce key learning objectives
+                        and prepare students for professional accounting careers.
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">Gap Year</div>
+                <div class="experience-content">
+                    <h3>StarkSensei Trading LLC</h3>
+                    <h4>Founder & Sole Manager</h4>
+                    <p>
+                        Founded and operated a trading business generating over $70,000 in revenue
+                        with approximately 50% profit margins. Managed all aspects of operations,
+                        financial planning, and strategic decision-making independently.
+                    </p>
+                </div>
+            </div>
+            <div class="experience-item fade-in">
+                <div class="experience-date">2023 — 2024</div>
+                <div class="experience-content">
+                    <h3>Swipe Athletics</h3>
+                    <h4>Co-Founder & Chief Financial Officer</h4>
+                    <p>
+                        Co-founded and led financial strategy for an innovative athletic apparel
+                        startup. Swipe Athletics produces high-quality tennis shorts with an integrated
+                        towel feature, solving a real problem for athletes who need to keep their hands
+                        dry during competition.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <h3>Academic Highlights</h3>
-            <ul>
-                <li>Major: Information Systems</li>
-                <li>Expected Graduation: May 2026</li>
-                <li>Relevant Coursework: Web Development, Database Management, Business Analytics</li>
-                <li>Activities: Tennis Team, Tech Club</li>
-            </ul>
-        </section>
-
-        <!-- Interests and Hobbies Section -->
-        <section id="interests">
-            <h2>Interests & Hobbies</h2>
-            <p>Outside of academics, I have several interests that keep me busy:</p>
-
-            <h3>Sports</h3>
-            <p>In my free time, I <strong>love to play tennis</strong>. I've been playing for several years and enjoy both competitive matches and casual games with friends.</p>
-
-            <h3>Other Interests</h3>
-            <ol>
-                <li>Learning web development and coding</li>
-                <li>Following professional tennis tournaments</li>
-                <li>Exploring new technologies</li>
-                <li>Reading about entrepreneurship</li>
-            </ol>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <div>
-                <h3>Technical Skills</h3>
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Education</h2>
+        </div>
+        <div class="education-card fade-in">
+            <div class="education-main">
+                <h3>Babson College</h3>
+                <h4>Accounting Concentration</h4>
+                <div class="education-details">
+                    <span class="education-tag">3.95 GPA</span>
+                    <span class="education-tag">Dean's Scholarship</span>
+                    <span class="education-tag">Dean's List</span>
+                </div>
+            </div>
+            <div class="education-activities">
+                <h5>Campus Involvement</h5>
                 <ul>
-                    <li>HTML & CSS</li>
-                    <li>JavaScript (learning)</li>
-                    <li>Microsoft Office Suite</li>
-                    <li>Data Analysis</li>
-                </ul>
-
-                <h3>Soft Skills</h3>
-                <ul>
-                    <li>Team Collaboration</li>
-                    <li>Problem Solving</li>
-                    <li>Communication</li>
-                    <li>Time Management</li>
+                    <li>Treasurer, Babson Club Tennis</li>
+                    <li>Project Team Leader, Babson Undergraduate Consulting Program</li>
+                    <li>Member, Babson Accounting Club</li>
+                    <li>Member, Babson Sports Business Society</li>
                 </ul>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Weekly Schedule Table -->
-        <section id="schedule">
-            <h2>My Typical Week</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Morning</th>
-                        <th>Afternoon</th>
-                        <th>Evening</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Monday</td>
-                        <td>Classes</td>
-                        <td>Study</td>
-                        <td>Tennis Practice</td>
-                    </tr>
-                    <tr>
-                        <td>Wednesday</td>
-                        <td>Classes</td>
-                        <td>Project Work</td>
-                        <td>Tennis Practice</td>
-                    </tr>
-                    <tr>
-                        <td>Friday</td>
-                        <td>Classes</td>
-                        <td>Study Group</td>
-                        <td>Free Time</td>
-                    </tr>
-                    <tr>
-                        <td>Saturday</td>
-                        <td>Tennis Match</td>
-                        <td>Homework</td>
-                        <td>Social Activities</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <!-- Interests Section -->
+    <section class="skills" id="skills">
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Interests</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h4>Professional Aspirations</h4>
+                <ul class="skill-list">
+                    <li>Aspiring CPA</li>
+                    <li>Public Accounting Career</li>
+                    <li>Audit & Assurance Services</li>
+                    <li>Professional Development</li>
+                    <li>Accounting Standards & Regulations</li>
+                </ul>
+            </div>
+            <div class="skill-category fade-in">
+                <h4>Business & Industry</h4>
+                <ul class="skill-list">
+                    <li>Following Accounting News</li>
+                    <li>Business Current Events</li>
+                    <li>Financial Markets Analysis</li>
+                    <li>Corporate Governance</li>
+                    <li>Industry Trends & Innovation</li>
+                </ul>
+            </div>
+            <div class="skill-category fade-in">
+                <h4>Personal Pursuits</h4>
+                <ul class="skill-list">
+                    <li>Competitive Tennis</li>
+                    <li>Entrepreneurship</li>
+                    <li>
+                        <span style="display: block;">
+                            Owner of Accounting X Page<br>
+                            <a href="https://x.com/materialitychck" target="_blank" rel="noopener noreferrer" class="skill-link-btn">Materiality Check</a>
+                        </span>
+                    </li>
+                    <li>Fantasy Sports Analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        <!-- Contact Section with Form -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Feel free to reach out if you'd like to connect!</p>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content fade-in">
+            <h2>Let's Connect</h2>
+            <p>
+                I'm always interested in discussing new opportunities, collaborations, 
+                or just connecting with fellow professionals and entrepreneurs.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:jstark2@babson.edu" class="contact-link">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <span>Email</span>
+                    <div class="contact-detail">jstark2@babson.edu</div>
+                </a>
+                <a href="tel:301-219-4599" class="contact-link">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
+                    </div>
+                    <span>Phone</span>
+                    <div class="contact-detail">301-219-4599</div>
+                </a>
+                <a href="https://www.linkedin.com/in/jacob-a-stark/" target="_blank" class="contact-link">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </div>
+                    <span>LinkedIn</span>
+                    <div class="contact-detail">jacob-a-stark</div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <h3>Contact Information</h3>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:jstark@babson.edu">jstark@babson.edu</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com" target="_blank">linkedin.com/in/jacobstark</a></li>
-                <li><strong>GitHub:</strong> <a href="https://github.com" target="_blank">github.com/jacobstark</a></li>
-            </ul>
-
-            <h3>Send Me a Message</h3>
-            <form action="#" method="post">
-                <label for="name">Your Name:</label><br>
-                <input type="text" id="name" name="name" required placeholder="Enter your name" style="width: 100%; padding: 8px; margin: 5px 0;"><br>
-
-                <label for="email">Your Email:</label><br>
-                <input type="email" id="email" name="email" required placeholder="your@email.com" style="width: 100%; padding: 8px; margin: 5px 0;"><br>
-
-                <label for="subject">Subject:</label><br>
-                <select id="subject" name="subject" style="width: 100%; padding: 8px; margin: 5px 0;">
-                    <option value="general">General Inquiry</option>
-                    <option value="tennis">Tennis</option>
-                    <option value="academic">Academic Question</option>
-                    <option value="collaboration">Collaboration</option>
-                </select><br>
-
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="5" required placeholder="Your message here..." style="width: 100%; padding: 8px; margin: 5px 0;"></textarea><br>
-
-                <input type="checkbox" id="newsletter" name="newsletter">
-                <label for="newsletter">Subscribe to my updates</label><br><br>
-
-                <button type="submit" style="background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Send Message</button>
-                <button type="reset" style="background-color: #777; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-left: 10px;">Clear Form</button>
-            </form>
-        </section>
-
-        <!-- Fun Facts Section with Blockquote -->
-        <section>
-            <h2>Fun Facts About Tennis</h2>
-            <p>I believe <strong>Rafael Nadal</strong> is the best tennis player of all time! His incredible dominance on clay courts, winning 14 French Open titles, along with his fighting spirit and determination make him truly legendary.</p>
-
-            <h3>Why Nadal is the Greatest:</h3>
-            <ul>
-                <li>22 Grand Slam titles - one of the most in tennis history</li>
-                <li>Known as the "King of Clay" with unmatched clay court success</li>
-                <li>Never-give-up attitude and incredible sportsmanship</li>
-                <li>His signature topspin forehand is one of the most powerful shots in tennis</li>
-            </ul>
-
-            <h3>More Tennis Facts:</h3>
-            <ul>
-                <li>Favorite Tennis Player: <em>Rafael Nadal</em></li>
-                <li>Favorite Shot: <strong>Topspin forehand</strong> (inspired by Nadal!)</li>
-                <li>Dream: Watch Nadal play at Roland Garros in Paris</li>
-                <li>Favorite Surface: Clay courts</li>
-            </ul>
-
-            <blockquote>
-                <p><em>"You fight, you try your best, and if you lose, you accept it with dignity. That's what sport is about."</em></p>
-                <footer>- Rafael Nadal</footer>
-            </blockquote>
-        </section>
-    </main>
-
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Jacob Stark | Babson College</p>
-        <p>Last Updated: <time datetime="2026-02-10">February 10, 2026</time></p>
-        <p>
-            <a href="#intro" style="color: white;">Back to Top</a>
-        </p>
+        <p>© 2026 Jacob Stark. Built with purpose.</p>
     </footer>
+
+    <script>
+        // Scroll-based navigation styling
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Fade-in animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
