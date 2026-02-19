@@ -1,0 +1,49 @@
+/* ================================
+   projects.css - Beginner CSS Demo
+   ================================ */
+
+/* --- Page body --- */
+body {
+    margin: 40px;       /* space between content and browser edge */
+    padding: 20px;      /* space inside the body element itself */
+}
+
+/* --- Main page title --- */
+h1 {
+    margin-bottom: 10px;   /* pushes content below the title down */
+    padding: 10px;         /* space inside the h1 box */
+}
+
+/* --- Intro paragraph --- */
+p {
+    margin: 10px 0;    /* 10px top/bottom, 0 left/right */
+    padding: 5px;
+}
+
+/* --- Project 1: solid border --- */
+div:nth-child(1) {
+    border: 3px solid black;   /* solid line border */
+    margin: 20px 0;            /* space between project boxes */
+    padding: 15px;             /* space inside the box */
+}
+
+/* --- Project 2: dashed border --- */
+div:nth-child(2) {
+    border: 3px dashed gray;   /* dashed line border */
+    margin: 20px 0;
+    padding: 15px;
+}
+
+/* ================================
+   NOTES (for learning):
+
+   margin  = space OUTSIDE the element (between it and neighbors)
+   padding = space INSIDE the element (between border and content)
+
+   border styles you can try:
+     solid   = straight line
+     dashed  = - - - - -
+     dotted  = . . . . .
+     double  = two solid lines
+     none    = no border
+   ================================ */
