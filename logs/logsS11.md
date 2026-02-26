@@ -1,0 +1,16 @@
+CSS Review
+Adding CSS, cascading, specificity
+Selectors, pseudo-classes (:hover, :focus, :nth-child)
+Display types, <div> & <span>, box model
+Transitions, CSS variables, typography, google fonts
+
+Friends <img> wont center even though they added margin:0 auto
+Because images are in-line -- need display: block; 
+img {
+    dsiplay: block
+    margin: 0 auto
+    /* width: 200px; */
+}
+
+transition: uses CSS to make a transition animation
+use root {} to set the color everywhere

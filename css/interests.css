@@ -1,0 +1,29 @@
+/* interests.css */
+
+body {
+    margin: 40px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: navy;
+}
+
+h2 {
+    color: gray;
+}
+
+button {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+}
+
+.myelement {
+    background-color: lightblue;
+    transition: background-color 0.5s;
+}
+
+.myelement:hover {
+    background-color: lightgreen;
+}
