@@ -14,3 +14,9 @@ img {
 
 transition: uses CSS to make a transition animation
 use root {} to set the color everywhere
+
+Layout Flexbox and Grid
+.container {
+    display: flex;
+}
+This makes all direct children line up in a row, shrink and frow to fit, and can be easily aligned
