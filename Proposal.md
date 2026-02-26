@@ -19,3 +19,6 @@
 - Site 1: https://woz.org -- He likes the content so about, blog posts, pictures, etc. But he wants the front page to be more inclusive, rather than having so many pages that all have less content. 
 - Site 2: https://johnreedstark.com -- He likes how the headshot and about are front and center. He really likes the news page and wants something similar for his X posts. He wants the front page to be more organized and inclusive of his acomplishments.
 Site 3: https://tommyspaulding.com - he likes the formatting of the front page, but wants to to be more zoomed out; a less dominating picture. He likes the subscribe button in the corner but wants it to be less loud-looking, and a contact button instead. He likes the formatting of the blog page. 
+
+# Other Notes
+Sachiel gave me a lot of creative freedom on this project. Him and I are both going into public accounting, so we have had very similar experiences and goals to this point. He wants his website to get these goals across. He has a job already, so he is not looking for it to be a carbon copy of his resume, but reflect his personal goals, interests, aspirations, and acomplishments. He wants it to be a site people go to to learn more about him. 
