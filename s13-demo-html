@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Demo</title>
+</head>
+<body>
+
+    <form action="https://oim.108122.xyz/echo/view" method="get">
+
+        <label>Name: <input type="text" name="name"></label><br>
+        <label>Email: <input type="email" name="email"></label><br>
+        <label>Age: <input type="number" name="age"></label><br>
+        <label>Birthday: <input type="date" name="birthday"></label><br>
+
+        <label>Gender:
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+        </label><br>
+
+        <label><input type="checkbox" name="subscribe" value="yes"> Subscribe to newsletter</label><br>
+
+        <label>Country:
+            <select name="country">
+                <option value="us">United States</option>
+                <option value="ca">Canada</option>
+                <option value="uk">United Kingdom</option>
+            </select>
+        </label><br>
+
+        <label>Message: <textarea name="message"></textarea></label><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
