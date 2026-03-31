@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <input type="number" id="bill" placeholder="Enter bill amount" />
+    <input type="number" id="tip" placeholder="Enter tip percentage" />
+    <button>Calculate Tip</button>
+    <p id="result"></p>
+    <script>
+        function calculateTip(bill, tipPercentage) {
+            return (bill * tipPercentage) / 100;
+        }
+        const billInput = document.getElementById('bill');
+        const tipInput = document.getElementById('tip');
+        const button = document.querySelector('button'); 
+        const resultDisplay = document.getElementById('result');
+        button.addEventListener('click', function () {
+            const billAmount = Number(billInput.value);
+            const tipPercentage = Number(tipInput.value);
+            const tipAmount = calculateTip(billAmount, tipPercentage);
+            resultDisplay.textContent = `You should tip: $${tipAmount.toFixed(2)}`;
+        });
+    </script>
+</body>
+</html>
