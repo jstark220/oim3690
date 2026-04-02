@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping List</title>
+</head>
+<body>
+
+  <h1>Shopping List</h1>
+
+  <ul id="list">
+    <li id="item0"></li>
+    <li id="item1"></li>
+    <li id="item2"></li>
+  </ul>
+
+  <input id="newItem" type="text" placeholder="Add an item...">
+  <button onclick="addItem()">Add</button>
+
+  <script>
+    const items = ['Milk', 'Eggs', 'Bread']
+
+    document.getElementById('item0').textContent = items[0]
+    document.getElementById('item1').textContent = items[1]
+    document.getElementById('item2').textContent = items[2]
+
+    function addItem() {
+      const input = document.getElementById('newItem')
+      const newItem = document.createElement('li')
+      newItem.textContent = input.value
+      document.getElementById('list').appendChild(newItem)
+      input.value = ''
+    }
+  </script>
+
+</body>
+</html>
