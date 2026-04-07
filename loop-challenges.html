@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <ul id="my-list"></ul>
+  <p id="total"></p>
+  <p id="largest"></p>
+  <p id="count"></p>
+  <p id="evens"></p>
+</body>
+<script>
+    const numbers = [4, -8, 15, -16, 23, 42, -3]
+
+    const ul = document.querySelector('#my-list');
+    let total = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+      const li = document.createElement('li');
+      li.textContent = numbers[i];
+      ul.appendChild(li);
+      total += numbers[i];
+    }
+
+    document.querySelector('#total').textContent = 'Total: ' + total;
+
+    let largest = numbers[0];
+    for (let i = 1; i < numbers.length; i++) {
+      if (numbers[i] > largest) {
+        largest = numbers[i];
+      }
+    }
+
+    document.querySelector('#largest').textContent = 'Largest: ' + largest;
+
+    let count = 0;
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] > 0) {
+        count++;
+      }
+    }
+
+    document.querySelector('#count').textContent = 'Numbers greater than 0: ' + count;
+
+    const evens = [];
+    for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] % 2 === 0) {
+        evens.push(numbers[i]);
+      }
+    }
+
+    document.querySelector('#evens').textContent = 'Evens: ' + evens;
+</script>
+</html>
