@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MA Towns</title>
+</head>
+<body>
+    <h1>Massachusetts Towns</h1>
+    <button onclick="showTowns()">Show Towns</button>
+    <div id="output"></div>
+    <br>
+    <input type="text" id="messageInput" placeholder="Enter a message">
+    <button onclick="postMessage(document.getElementById('messageInput').value)">Send Message</button>
+    <div id="messageOutput"></div>
+    <br>
+    <button onclick="getRandomWord()">Get Random Word</button>
+    <div id="wordOutput"></div>
+    <br>
+    <button onclick="getSmallestTown()">Find Smallest Town</button>
+    <div id="smallestTownOutput"></div>
+    <script>
+        async function showTowns() {
+          try {
+            const response = await fetch("https://oim.108122.xyz/mass", {
+                headers: {
+                    "X-Token": "jacobjacob"
+                }
+            });
+            console.log("Status:", response.status);
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status + " " + response.statusText);
+            }
+            const json = await response.json();
+            console.log(json);
+            const data = json.data;
+            const output = document.getElementById("output");
+            output.innerHTML = "";
+            const table = document.createElement("table");
+            table.border = "1";
+            table.cellPadding = "6";
+
+            const headers = Object.keys(data[0]);
+            const headerRow = table.insertRow();
+            headers.forEach(h => {
+                const th = document.createElement("th");
+                th.textContent = h;
+                headerRow.appendChild(th);
+            });
+
+            data.forEach(item => {
+                const row = table.insertRow();
+                headers.forEach(h => {
+                    row.insertCell().textContent = item[h];
+                });
+            });
+
+            output.appendChild(table);
+          } catch (err) {
+            document.getElementById("output").textContent = "Error: " + err.message;
+          }
+        }
+
+    async function postMessage(text) {
+        const response = await fetch("https://oim.108122.xyz/message", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Token": "jacobjacob"
+            },
+            body: JSON.stringify({ message: text })
+        });
+        const result = await response.json();
+        console.log(result);
+        document.getElementById("messageOutput").textContent = JSON.stringify(result);
+    }
+
+
+    async function getSmallestTown() {
+        try {
+            const response = await fetch("https://oim.108122.xyz/mass", {
+                headers: {
+                    "X-Token": "jacobjacob"
+                }
+            });
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status + " " + response.statusText);
+            }
+            const json = await response.json();
+            const data = json.data;
+            const smallest = data.reduce((min, town) => town.pop < min.pop ? town : min);
+            document.getElementById("smallestTownOutput").textContent =
+                `${smallest.town} is the smallest town with ${smallest.pop.toLocaleString()} residents.`;
+        } catch (err) {
+            document.getElementById("smallestTownOutput").textContent = "Error: " + err.message;
+        }
+    }
+
+    async function getRandomWord() {
+        try {
+            const response = await fetch("https://oim.108122.xyz/words/random", {
+                headers: {
+                    "X-Token": "jacobjacob"
+                }
+            });
+            if (!response.ok) {
+                throw new Error("HTTP " + response.status + " " + response.statusText);
+            }
+            const result = await response.json();
+            document.getElementById("wordOutput").textContent = JSON.stringify(result);
+        } catch (err) {
+            document.getElementById("wordOutput").textContent = "Error: " + err.message;
+        }
+    }
+    </script>
+</body>
+</html>
